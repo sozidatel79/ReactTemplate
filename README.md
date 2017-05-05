@@ -1,2 +1,2 @@
-# React Template
-education
+# React template
+React Blank Temlate
