@@ -13,6 +13,7 @@ module.exports = {
       About:    'app/components/about.jsx',
       Examples: 'app/components/examples.jsx',
       Wform:    'app/components/wform.jsx',
+      Wresult:  'app/components/wresult.jsx',
     },
     extensions: ['', '.js', '.jsx']
   },
