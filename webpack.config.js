@@ -7,11 +7,12 @@ module.exports = {
   resolve: {
     root: __dirname,
     alias: {
-      Page:    'app/components/page.jsx',
-      Menu:    'app/components/menu.jsx',
-      Weather: 'app/components/weather.jsx',
-      About:   'app/components/about.jsx',
-      Examples:   'app/components/examples.jsx',
+      Page:     'app/components/page.jsx',
+      Menu:     'app/components/menu.jsx',
+      Weather:  'app/components/weather.jsx',
+      About:    'app/components/about.jsx',
+      Examples: 'app/components/examples.jsx',
+      Wform:    'app/components/wform.jsx',
     },
     extensions: ['', '.js', '.jsx']
   },
