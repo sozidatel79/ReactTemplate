@@ -6,7 +6,6 @@ var Main = React.createClass({
        return(
            <div>
                <Menu/>
-               <h1>Weather Component</h1>
                {this.props.children}
            </div>
        );
