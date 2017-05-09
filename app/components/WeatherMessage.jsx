@@ -7,7 +7,7 @@ var WeatherMessage = React.createClass({
         if(cod == '404'){
             message = location;
         }else{
-            message = `It's it ${temp} ℃ in ${location}`;
+            message = `It's it ${temp} ℃  in  ${location}`;
         }
         return (
             <h3 className="message">{message}</h3>
