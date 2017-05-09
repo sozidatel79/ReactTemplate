@@ -1,12 +1,8 @@
 var React = require('react');
-var Examples = React.createClass({
-    render: function(){
-        return (
-            <div>
-                <h1>Examples Component</h1>
-            </div>
-        );
-    }
-});
+var Examples = () => {
+    return (
+        <h2>Examples Component!</h2>
+    );
+}
 
 module.exports = Examples;

@@ -1,46 +1,58 @@
 var React = require('react');
 var WeatherForm = require('WeatherForm');
 var WeatherMessage = require('WeatherMessage');
-var OpenWeatherMap = require('OpenWeatherMap');
 var http = require('http');
 
 var Weather = React.createClass({
 
-    getInitialState:function () {
+    getInitialState: () => {
         return {
-            IsLoading: false
+            IsLoading: false,
+            cod: null
         };
     },
     handleLocation: function (location) {
-        var that = this;
+
         this.setState({IsLoading: true});
+
         const app_id = '63b1cf1c839b4c8abfe8838ca44f0876';
         var options = {
             host: 'api.openweathermap.org',
             path: `/data/2.5/weather?lang=ru_ru&units=metric&appid=${app_id}&q=${location}`
         };
-        var callback = function(response) {
+        var callback = (response) => {
             var str = '';
-            response.on('data', function (chunk) {
+            response.on('data', (chunk) => {
                 str += chunk;
                 var data =  JSON.parse(str);
-                console.log('handleLocation', data);
-                that.setState({
-                    location: location,
-                    temp: data.main.temp,
-                    IsLoading: false
-                });
+                if (data.cod == '404') {
+                    this.setState({
+                        location: data.message,
+                        temp: '',
+                        IsLoading: false,
+                        cod: '404'
+                    });
+                } else {
+                    this.setState({
+                        location: location,
+                        temp: data.main.temp,
+                        cod: null,
+                        IsLoading: false
+                    });
+                }
             });
         }
         http.request(options, callback).end();
     },
     render: function(){
-        var {location, temp, IsLoading} = this.state;
-        function renderMessage(){
+        var {location, temp, IsLoading, cod} = this.state;
+        var renderMessage = () => {
             if (IsLoading){
-                return <h3>Loading...</h3>
+                return <h3>Fetching Weather...</h3>
             } else if(location && temp) {
                 return <WeatherMessage location={location} temp={temp}/>
+            } else if (cod == '404') {
+                return <WeatherMessage cod={cod} location={location} temp={temp}/>
             }
         }
         return (
