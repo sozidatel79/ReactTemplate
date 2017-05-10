@@ -3,12 +3,12 @@ var React = require('react');
 var WeatherMessage = (props) => {
     var {windSpeed, humidity, description, img, countryCode,location, temp} = props;
     return (
-        <div className="card text-center">
+        <div className="message-box card text-center">
             <div className="card-divider">
                 <h4>Location found: <b>{location}</b></h4>
                 <h5>Country Code: <b>{countryCode}</b></h5>
             </div>
-            <img width="100px" src={img} alt=''/>
+            <img className="flag" width="100px" src={img} alt=''/>
 
             <div className="card-section">
                 <br/>
