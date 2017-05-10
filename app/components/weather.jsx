@@ -27,6 +27,7 @@ var Weather = React.createClass({
             response.on('data', (chunk) => {
                 str += chunk;
                 var data =  JSON.parse(str);
+                console.log(data.sys.country, data.name);
                 if (data.cod != '200') {
                     this.setState({
                         location: '',
@@ -34,14 +35,18 @@ var Weather = React.createClass({
                         IsLoading: false,
                         cod: data.cod,
                         errorMessage: data.message,
+                        countryCode: '',
+                        img: '',
                     });
                 } else {
                     this.setState({
-                        location: location,
+                        location: data.name,
                         temp: data.main.temp,
                         cod: data.cod,
                         IsLoading: false,
-                        errorMessage: ''
+                        errorMessage: '',
+                        countryCode: data.sys.country,
+                        img: "../../public/img/flags/"+data.sys.country+".png",
                     });
                 }
             });
@@ -49,12 +54,12 @@ var Weather = React.createClass({
         http.request(options, callback).end();
     },
     render: function(){
-        var {location, temp, IsLoading, cod, errorMessage} = this.state;
+        var {img, countryCode, location, temp, IsLoading, cod, errorMessage} = this.state;
         var renderMessage = () => {
             if (IsLoading){
                 return <h3>Fetching Weather...</h3>
             } else if (location && temp) {
-                return <WeatherMessage location={location} temp={temp}/>
+                return <WeatherMessage img={img} countryCode={countryCode} location={location} temp={temp}/>
             } else if (cod == '400' || cod == '404') {
                 return <ErrorModal cod={cod} errorMessage={errorMessage}/>
                 //return <WeatherMessage cod={cod} location={location} temp={temp}/>
