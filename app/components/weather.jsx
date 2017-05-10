@@ -27,7 +27,6 @@ var Weather = React.createClass({
             response.on('data', (chunk) => {
                 str += chunk;
                 var data =  JSON.parse(str);
-                console.log(data.sys.country, data.name);
                 if (data.cod != '200') {
                     this.setState({
                         location: '',
@@ -37,6 +36,9 @@ var Weather = React.createClass({
                         errorMessage: data.message,
                         countryCode: '',
                         img: '',
+                        description: '',
+                        humidity: '',
+                        windSpeed: '',
                     });
                 } else {
                     this.setState({
@@ -45,8 +47,11 @@ var Weather = React.createClass({
                         cod: data.cod,
                         IsLoading: false,
                         errorMessage: '',
-                        countryCode: data.sys.country,
-                        img: "../../public/img/flags/"+data.sys.country+".png",
+                        countryCode: (data.sys.country) ? data.sys.country : null,
+                        img: (data.sys.country) ? "../../public/img/flags/"+data.sys.country+".png" : null,
+                        description: data.weather[0].description,
+                        humidity: data.main.humidity + "%",
+                        windSpeed: data.wind.speed
                     });
                 }
             });
@@ -54,12 +59,12 @@ var Weather = React.createClass({
         http.request(options, callback).end();
     },
     render: function(){
-        var {img, countryCode, location, temp, IsLoading, cod, errorMessage} = this.state;
+        var {windSpeed, humidity, description, img, countryCode, location, temp, IsLoading, cod, errorMessage} = this.state;
         var renderMessage = () => {
             if (IsLoading){
                 return <h3>Fetching Weather...</h3>
             } else if (location && temp) {
-                return <WeatherMessage img={img} countryCode={countryCode} location={location} temp={temp}/>
+                return <WeatherMessage description={description} humidity={humidity} windSpeed={windSpeed} img={img} countryCode={countryCode} location={location} temp={temp}/>
             } else if (cod == '400' || cod == '404') {
                 return <ErrorModal cod={cod} errorMessage={errorMessage}/>
                 //return <WeatherMessage cod={cod} location={location} temp={temp}/>

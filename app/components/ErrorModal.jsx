@@ -15,7 +15,7 @@ var ErrorModal = React.createClass({
                <h3>Error {cod}</h3>
                <p className='lead'>{errorMessage}</p>
                <button onClick={this.closeErrorModal} className="button hollow tiny close-button" data-close aria-label="Close reveal" type="button">
-                   <span aria-hidden="true">close</span>
+                   <span aria-hidden="true">X</span>
                </button>
            </div>
        );
