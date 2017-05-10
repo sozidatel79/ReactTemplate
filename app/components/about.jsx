@@ -18,6 +18,9 @@ var About = () => {
                 <li>
                     <a target="_blank"  href="https://openweathermap.org">Open Weather Map</a> - I used to search for weather data by city name.
                 </li>
+                <li>
+                    <a target="_blank"  href="http://foundation.zurb.com">Foundation</a> - This is Frontend CSS framework i used for styling the App.
+                </li>
             </ul>
         </div>
     );

@@ -1,6 +1,7 @@
 var React = require('react');
 var WeatherForm = require('WeatherForm');
 var WeatherMessage = require('WeatherMessage');
+var ErrorModal = require('ErrorModal');
 var http = require('http');
 
 var Weather = React.createClass({
@@ -8,7 +9,8 @@ var Weather = React.createClass({
     getInitialState: () => {
         return {
             IsLoading: false,
-            cod: null
+            cod: null,
+            errorMessage: '',
         };
     },
     handleLocation: function (location) {
@@ -27,17 +29,19 @@ var Weather = React.createClass({
                 var data =  JSON.parse(str);
                 if (data.cod == '404') {
                     this.setState({
-                        location: data.message,
+                        location: '',
                         temp: '',
                         IsLoading: false,
-                        cod: '404'
+                        cod: '404',
+                        errorMessage: data.message,
                     });
                 } else {
                     this.setState({
                         location: location,
                         temp: data.main.temp,
                         cod: null,
-                        IsLoading: false
+                        IsLoading: false,
+                        errorMessage: ''
                     });
                 }
             });
@@ -45,14 +49,16 @@ var Weather = React.createClass({
         http.request(options, callback).end();
     },
     render: function(){
-        var {location, temp, IsLoading, cod} = this.state;
+        var {location, temp, IsLoading, cod, errorMessage} = this.state;
         var renderMessage = () => {
             if (IsLoading){
                 return <h3>Fetching Weather...</h3>
-            } else if(location && temp) {
+            } else if (location && temp) {
                 return <WeatherMessage location={location} temp={temp}/>
             } else if (cod == '404') {
-                return <WeatherMessage cod={cod} location={location} temp={temp}/>
+                console.log(location, cod);
+                return <ErrorModal cod={cod} errorMessage={errorMessage}/>
+                //return <WeatherMessage cod={cod} location={location} temp={temp}/>
             }
         }
         return (
