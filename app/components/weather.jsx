@@ -27,19 +27,19 @@ var Weather = React.createClass({
             response.on('data', (chunk) => {
                 str += chunk;
                 var data =  JSON.parse(str);
-                if (data.cod == '404') {
+                if (data.cod != '200') {
                     this.setState({
                         location: '',
                         temp: '',
                         IsLoading: false,
-                        cod: '404',
+                        cod: data.cod,
                         errorMessage: data.message,
                     });
                 } else {
                     this.setState({
                         location: location,
                         temp: data.main.temp,
-                        cod: null,
+                        cod: data.cod,
                         IsLoading: false,
                         errorMessage: ''
                     });
@@ -55,8 +55,7 @@ var Weather = React.createClass({
                 return <h3>Fetching Weather...</h3>
             } else if (location && temp) {
                 return <WeatherMessage location={location} temp={temp}/>
-            } else if (cod == '404') {
-                console.log(location, cod);
+            } else if (cod == '400' || cod == '404') {
                 return <ErrorModal cod={cod} errorMessage={errorMessage}/>
                 //return <WeatherMessage cod={cod} location={location} temp={temp}/>
             }
