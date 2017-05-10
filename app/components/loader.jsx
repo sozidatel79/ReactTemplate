@@ -1,7 +1,6 @@
 var React = require('react');
 var loader = React.createClass({
 	render: function() {
-		debugger;
 		return (
 			<div className="text-center">
 				<image src="../../public/img/spin.gif" />
