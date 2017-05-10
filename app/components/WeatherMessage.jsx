@@ -9,7 +9,7 @@ var WeatherMessage = (props) => {
         message = `It's it ${temp} ℃  in  ${location}`;
     }
     return (
-        <h3 className="message text-center">{message}</h3>
+        <h3 className="text-center">{message}</h3>
     );
 }
 module.exports = WeatherMessage;
