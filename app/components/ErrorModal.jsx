@@ -3,7 +3,7 @@ var React = require('react');
 var ErrorModal = React.createClass({
 
    closeErrorModal:function () {
-       $('#error-modal').fadeOut(500);
+      $('#error-modal').fadeOut(500);
    },
    componentDidMount: function () {
       $('#error-modal').fadeIn(500);
@@ -11,12 +11,14 @@ var ErrorModal = React.createClass({
    render: function () {
        var {errorMessage, cod} = this.props;
        return (
-           <div className="reveal large text-center" id="error-modal">
+           <div className="reveal large text-center" id="error-modal" data-reveal="">
                <h3>Error {cod}</h3>
                <p className='lead'>{errorMessage}</p>
-               <button onClick={this.closeErrorModal} className="button hollow tiny close-button" data-close aria-label="Close reveal" type="button">
-                   <span aria-hidden="true">X</span>
-               </button>
+               <div>
+                 <button onClick={this.closeErrorModal} className="button hollow small" data-close="" type="button">
+                     <span aria-hidden="true">Close</span>
+                 </button>
+               </div>
            </div>
        );
    }

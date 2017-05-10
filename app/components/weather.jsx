@@ -2,6 +2,7 @@ var React = require('react');
 var WeatherForm = require('WeatherForm');
 var WeatherMessage = require('WeatherMessage');
 var ErrorModal = require('ErrorModal');
+var Loader = require('Loader');
 var http = require('http');
 
 var Weather = React.createClass({
@@ -62,12 +63,11 @@ var Weather = React.createClass({
         var {windSpeed, humidity, description, img, countryCode, location, temp, IsLoading, cod, errorMessage} = this.state;
         var renderMessage = () => {
             if (IsLoading){
-                return <h3>Fetching Weather...</h3>
+                return <Loader/>
             } else if (location && temp) {
                 return <WeatherMessage description={description} humidity={humidity} windSpeed={windSpeed} img={img} countryCode={countryCode} location={location} temp={temp}/>
             } else if (cod == '400' || cod == '404') {
                 return <ErrorModal cod={cod} errorMessage={errorMessage}/>
-                //return <WeatherMessage cod={cod} location={location} temp={temp}/>
             }
         }
         return (
