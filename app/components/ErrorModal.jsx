@@ -8,12 +8,22 @@ var ErrorModal = React.createClass({
    componentDidMount: function () {
       $('#error-modal').fadeIn(500);
    },
+   getDefaultProps: function(){
+      return {
+          cod: '200',
+          errorMessage: 'Error'
+      };
+   },
+   propTypes:{
+      cod: React.PropTypes.string,
+      errorMessage: React.PropTypes.string
+   },
    render: function () {
        var {errorMessage, cod} = this.props;
        return (
            <div className="reveal large text-center" id="error-modal" data-reveal="">
-               <h3>Error {cod}</h3>
-               <p className='lead'>{errorMessage}</p>
+               <h3>Http: {cod}</h3>
+               <p className='lead'>Error: {errorMessage}</p>
                <div>
                  <button onClick={this.closeErrorModal} className="button hollow small" data-close="" type="button">
                      <span aria-hidden="true">Close</span>
@@ -24,4 +34,4 @@ var ErrorModal = React.createClass({
    }
 });
 
-module.exports = ErrorModal;
+module.exports = ErrorModal; 

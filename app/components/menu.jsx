@@ -31,8 +31,3 @@ var Menu = React.createClass({
 });
 
 module.exports = Menu;
-
-
-/*
-
- */

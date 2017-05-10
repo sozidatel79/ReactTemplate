@@ -44,7 +44,7 @@ var Weather = React.createClass({
                 } else {
                     this.setState({
                         location: data.name,
-                        temp: data.main.temp,
+                        temp: parseInt(data.main.temp),
                         cod: data.cod,
                         IsLoading: false,
                         errorMessage: '',
