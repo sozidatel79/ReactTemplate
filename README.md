@@ -16,7 +16,7 @@ In order to run App
 run content from public folder.
 2. Second option (Node.js) Run "node server.js" Or "npm start", the app will be available on localhost:3000
 --------------------------------------
-Live Demo
+Live Demo: 
 <a target='_blank' href='http://weather.web-extension.com'>React JS Weather Application</a>
 --------------------------------------
 
