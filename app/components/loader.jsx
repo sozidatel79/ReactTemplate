@@ -3,7 +3,7 @@ var loader = React.createClass({
 	render: function() {
 		return (
 			<div className="text-center">
-				<image src="../../public/img/spin.gif" />
+				<image src="img/spin.gif" />
 				<h6>Fetching weather</h6>
 			</div>
 		);
