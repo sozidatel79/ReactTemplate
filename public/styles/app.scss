@@ -1,6 +1,6 @@
 $space-page-title: 30px;
 $shadow:  0px 0px 3px 0px #000;
-$h4-h5-color: tomato;
+$h4h5-color: tomato;
 $h3-color: lightslategray;
 $h3-error-color: crimson;
 $error-message-color: firebrick;
@@ -19,23 +19,33 @@ $error-message-color: firebrick;
     margin-top: 40px;
 }
 .message-box h4{
-    color: $h4-h5-color;
+    color: $h4h5-color;
 }
 .message-box h3{
     color: $h3-color;
 }
 .message-box h5{
-    color: $h4-h5-color;
+    color: $h4h5-color;
 }
 .message-box b{
     color: steelblue;
     font-weight: normal;
 }
-.flag{
+.flag-div{
+    width: 34%;
+    float: left;
+    position: relative;
+    bottom: 23px;
+}
+
+.flag-div .flag{
     border: 4px solid #f1f1f1;
     box-shadow: $shadow;
     border-radius: 3px;
     margin-top: 30px;
+}
+.weather-div{
+
 }
 .error-modal h3{
     color: $h3-error-color;
@@ -43,4 +53,11 @@ $error-message-color: firebrick;
 .error-modal .error-message{
     color: $error-message-color;
 }
+.card-section {
+    padding-bottom: 35px;
+}
 
+.card-section h5 {
+    text-align: left;
+    margin-left: 41px;
+}

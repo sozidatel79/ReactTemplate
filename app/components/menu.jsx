@@ -4,7 +4,12 @@ var Menu = React.createClass({
 
     onSearch: function (e) {
         e.preventDefault();
-        alert('Not work yet');
+        var weatherSearch = this.refs.weatherSearch.value;
+        var encodedweatherSearch = encodeURIComponent(weatherSearch);
+        if(encodedweatherSearch.length > 0){
+            this.refs.weatherSearch.value = '';
+            window.location.hash = '#/?location=' + encodedweatherSearch;
+        }
     },
     render: function () {
        return (
@@ -20,7 +25,7 @@ var Menu = React.createClass({
                <div className="top-bar-right">
                    <form>
                         <ul className="menu">
-                            <li><input type="search" placeholder="Search Weather"/></li>
+                            <li><input ref="weatherSearch" type="text" placeholder="Search Weather"/></li>
                             <li><input type="button" onClick={this.onSearch} className="button" value="Get Weather"/></li>
                         </ul>
                    </form>
