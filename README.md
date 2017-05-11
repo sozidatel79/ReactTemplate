@@ -1,4 +1,4 @@
-Weather Application
+React JS Weather Application
 -------------------
 
 In order to install App
