@@ -1,7 +1,7 @@
 React JS Weather Application
 -------------------
 
-In order to install App
+In order to install Application
 --------------------------------------
 1. be sure node.js is installed
 2. go to the project root folder 
