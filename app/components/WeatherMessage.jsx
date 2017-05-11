@@ -9,7 +9,6 @@ var WeatherMessage = (props) => {
                 <h5>Country Code: <b>{countryCode}</b></h5>
             </div>
             <img className="flag" width="100px" src={img} alt=''/>
-
             <div className="card-section">
                 <br/>
                 <h5>It's it <b>{temp} °C </b> in <b>{location}</b></h5>
