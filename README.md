@@ -1,7 +1,7 @@
 React JS Weather Application
 -------------------
 
-In order to install Application
+In order to install App
 --------------------------------------
 1. be sure node.js is installed
 2. go to the project root folder 
@@ -10,7 +10,7 @@ In order to install Application
 5. run "webpack" in command line
 
 
-In order to run Application
+In order to run App
 --------------------------------------
 1. Firs option (Apache) place the app on host, configure you virtual host
 run content from public folder.
