@@ -15,7 +15,7 @@ In order to run App
 1. Firs option (Apache) place the app on host, configure you virtual host
 run content from public folder.
 2. Second option (Node.js) Run "node server.js" Or "npm start", the app will be available on localhost:3000
-
+--------------------------------------
 Live Demo
 http://weather.web-extension.com
 --------------------------------------
