@@ -21,11 +21,11 @@ var ErrorModal = React.createClass({
    render: function () {
        var {errorMessage, cod} = this.props;
        return (
-           <div className="reveal large text-center" id="error-modal" data-reveal="">
+           <div className="reveal error-modal large text-center" id="error-modal" data-reveal="">
                <h3>Error: {cod}</h3>
-               <p className='lead'>{errorMessage}</p>
+               <p className='lead error-message'>{errorMessage}</p>
                <div>
-                 <button onClick={this.closeErrorModal} className="button hollow small" data-close="" type="button">
+                 <button onClick={this.closeErrorModal} className="button hollow small secondary" data-close="" type="button">
                      <span aria-hidden="true">Close</span>
                  </button>
                </div>

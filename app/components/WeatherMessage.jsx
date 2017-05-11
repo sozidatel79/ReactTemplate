@@ -5,7 +5,7 @@ var WeatherMessage = (props) => {
     return (
         <div className="message-box card text-center">
             <div className="card-divider">
-                <h4>Location found: <b>{location}</b></h4>
+                <h3>{location}</h3>
                 <h5>Country Code: <b>{countryCode}</b></h5>
             </div>
             <img className="flag" width="100px" src={img} alt=''/>

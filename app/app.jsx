@@ -6,9 +6,12 @@ var Main = require('Main');
 var About = require('About');
 var Examples = require('Examples');
 
+// Load Foundation
 require('style!css!foundation-sites/dist/css/foundation.min.css');
 $(document).foundation();
-require('style!css!ApplicationStyles');
+
+//App Styles
+require('style!css!sass!ApplicationStyles');
 
 ReactDOM.render(
     <Router history={hashHistory}>
