@@ -63,7 +63,7 @@ var Weather = React.createClass({
                         IsLoading: false,
                         errorMessage: '',
                         countryCode: (data.sys.country) ? data.sys.country : null,
-                        img: (data.sys.country) ? "img/flags/"+data.sys.country+".png" : null,
+                        img: (data.sys.country) ? "img/flags/"+data.sys.country.toLowerCase()+".png" : null,
                         description: data.weather[0].description,
                         humidity: data.main.humidity + "%",
                         windSpeed: data.wind.speed
