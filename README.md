@@ -6,9 +6,6 @@ In order to install App
 1. be sure node.js is installed
 2. go to the project root folder 
 3. run "npm i" in command line
-4. run "npm i -g webpack" in command line
-5. run "webpack" in command line
-
 
 In order to run App
 --------------------------------------
